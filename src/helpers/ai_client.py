@@ -4,7 +4,8 @@ from openai import OpenAI, APIConnectionError, RateLimitError, APIConnectionErro
 from dotenv import load_dotenv
 
 load_dotenv()
-base_url="https://router.bynara.id/v1"
+#base_url="https://router.bynara.id/v1"
+base_url="https://openrouter.ai/api/v1"
 client = OpenAI()
 def call_ai(messages: list, temperature: float = 0.1) -> str:
     """

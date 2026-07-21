@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI()
+client = OpenAI(base_url="https://router.bynara.id/v1")
 def call_ai(messages: list, temperature: float = 0.1) -> str:
     """
         Llama a la IA y maneja errores
@@ -22,7 +22,7 @@ def call_ai(messages: list, temperature: float = 0.1) -> str:
     """
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="glm-5.2-free",
             messages=messages,
             temperature=temperature
         )

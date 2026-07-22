@@ -1,6 +1,7 @@
 """
 News extractor
 """
+from src.services.news_service import NewsService
 import json
 import os
 from dotenv import load_dotenv
@@ -14,16 +15,16 @@ def run_news_extractor():
     print("Extractor de noticias")
     print("="*40)
 
-    news = """
-    Apple anunció hoy que Tim Cook presentará el nuevo iPhone 17 Pro
-    el próximo 15 de septiembre de 2025 en Cupertino, California.
-    El dispositivo costará desde $1,199 USD y contará con chip A19.
-    """
-
+    # news = """
+    # Apple anunció hoy que Tim Cook presentará el nuevo iPhone 17 Pro
+    # el próximo 15 de septiembre de 2025 en Cupertino, California.
+    # El dispositivo costará desde $1,199 USD y contará con chip A19.
+    # """
+    news = NewsService(os.getenv("NEWS_API_KEY")).get_latest_tech_news()
     response_extractor = call_ai([
         {
             "role": "system",
-            "content": """Eres un extractor de información de noticias. Si la noticia está en otro idioma traduce al Español.
+            "content": """Eres un extractor de información de noticias. Si la noticia está en otro idioma TRADUCE SIEMPRE AL ESPAÑOL.
             Extrae entidades y devuelve solo JSON válido con esta estructura:
             {
                 "company": string,

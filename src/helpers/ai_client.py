@@ -6,13 +6,14 @@ from dotenv import load_dotenv
 load_dotenv()
 #base_url="https://router.bynara.id/v1"
 base_url="https://openrouter.ai/api/v1"
-client = OpenAI()
-def call_ai(messages: list, temperature: float = 0.1) -> str:
+client = OpenAI(base_url=base_url)
+def call_ai(messages: list, temperature: float = 0.1, response_format: str = "text") -> str:
     """
         Llama a la IA y maneja errores
         Args:
             messages: Lista de mensajes a enviar a la IA
             temperature: Temperatura de la IA
+            response_format: Formato de respuesta
         Returns:
             Respuesta de la IA
         Raises:
@@ -25,7 +26,8 @@ def call_ai(messages: list, temperature: float = 0.1) -> str:
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
-            temperature=temperature
+            temperature=temperature,
+            response_format={"type": response_format}
         )
         return response.choices[0].message.content
     except AuthenticationError:

@@ -5,6 +5,7 @@ from rich.panel import Panel
 from src.prompts.zero_few_shot import run_zero_few_shot
 from src.prompts.cot_prompts import run_chain_of_thought
 from src.prompts.prompt_template import run_prompt_templates
+from src.prompts.json_mode import run_json_mode
 
 console = Console()
 
@@ -18,7 +19,8 @@ def main():
 
     #run_zero_few_shot()
     #run_chain_of_thought()
-    run_prompt_templates()
+    #run_prompt_templates()
+    run_json_mode()
 
     console.print("\n[bold green]Ejecución completada\n")
 

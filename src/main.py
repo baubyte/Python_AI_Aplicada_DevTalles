@@ -1,4 +1,5 @@
 
+from src.prompts.news_extractors import run_news_extractor
 from rich.console import Console
 from rich.panel import Panel
 
@@ -20,7 +21,8 @@ def main():
     #run_zero_few_shot()
     #run_chain_of_thought()
     #run_prompt_templates()
-    run_json_mode()
+    #run_json_mode()
+    run_news_extractor()
 
     console.print("\n[bold green]Ejecución completada\n")
 

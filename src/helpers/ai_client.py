@@ -24,7 +24,7 @@ def call_ai(messages: list, temperature: float = 0.1, response_format: str = "te
     """
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="openrouter/free",
             messages=messages,
             temperature=temperature,
             response_format={"type": response_format}

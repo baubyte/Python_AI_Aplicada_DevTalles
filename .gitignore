@@ -12,6 +12,7 @@ dist/
 build/
 
 data/private/
+data/chromadb/
 
 .vscode/settings.json
 .idea/

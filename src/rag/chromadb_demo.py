@@ -4,6 +4,7 @@ import chromadb
 from chromadb.utils import embedding_functions
 from dotenv import load_dotenv
 import os
+from typing import TypedDict, Any
 
 load_dotenv()
 
@@ -82,7 +83,13 @@ def add_documents(collection: chromadb.Collection, documents: list[dict]) -> Non
     print(f"💾 OK {len(documents)} documentos agregados a ChromaDB")
 
 
-def search_similar(collection: chromadb.Collection, question: str, n_results: int = 3) -> list[dict]:
+class SearchResult(TypedDict):
+    texto: str
+    metadata: dict[str, Any]
+    similitud: float
+
+
+def search_similar(collection: chromadb.Collection, question: str, n_results: int = 3) -> list[SearchResult]:
     """
     Busca los documentos más relevantes en la colección
 
@@ -92,7 +99,7 @@ def search_similar(collection: chromadb.Collection, question: str, n_results: in
         n_results (int, optional): Número de resultados a buscar. Defaults to 3.
 
     Returns:
-        list[dict]: Lista de documentos más relevantes
+        list[SearchResult]: Lista de documentos más relevantes 
     """
     results = collection.query(
         query_texts=[question],

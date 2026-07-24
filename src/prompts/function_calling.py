@@ -3,6 +3,7 @@ import json
 from src.helpers.ai_client import call_ai_tools
 from src.services.weather_service import WeatherService
 
+
 TOOLS = [
     {
         "type": "function",
@@ -30,7 +31,15 @@ TOOLS = [
 
 
 def get_weather(city: str, unit: str = "celsius") -> dict:
-    """Obtener clima"""
+    """
+    Obtiene el clima actual de una ciudad
+
+    Args:
+        city (str): Nombre de la ciudad
+        unit (str): Unidad de temperatura
+    Returns:
+        dict: Datos del clima
+    """
 
     weather_service = WeatherService()
 
@@ -77,6 +86,15 @@ def execute_tool(name: str, arguments: dict) -> str:
 
 
 def run_chat_with_tools(user_message: str) -> str:
+    """
+    Chat con herramientas
+
+    Args:
+        user_message (str): Mensaje del usuario
+
+    Returns:
+        str: Respuesta del asistente
+    """
 
     messages = [
         {"role": "system", "content": "Eres un asistente avanzado con acceso a herramientas."},

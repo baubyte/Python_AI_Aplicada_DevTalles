@@ -4,7 +4,15 @@ import requests
 
 class WeatherService:
 
-    def get_coordinates(self, city: str):
+    def get_coordinates(self, city: str) -> tuple[float, float]:
+        """
+        Obtiene las coordenadas de una ciudad
+
+        Args:
+            city (str): Nombre de la ciudad
+        Returns:
+            tuple: (latitud, longitud)
+        """
         url = "https://geocoding-api.open-meteo.com/v1/search"
         params = {
             "name": city,
@@ -21,7 +29,16 @@ class WeatherService:
         result = data["results"][0]
         return result["latitude"], result["longitude"]
 
-    def get_current_weather_by_city(self, city: str):
+    def get_current_weather_by_city(self, city: str) -> dict[str, any]:
+        """
+        Obtiene el clima actual de una ciudad
+
+        Args:
+            city (str): Nombre de la ciudad
+
+        Returns:
+            dict: Datos del clima
+        """
         lat, lon = self.get_coordinates(city)
 
         if lat is None:

@@ -178,7 +178,6 @@ class RAGPipeline:
 
         for i in range(len(results["documents"][0])):
             similarity = round(1 - (results["distances"][0][i]), 3)
-            print(similarity)
             if similarity > 0.3:
                 fragments.append({
                     "texto": results["documents"][0][i],

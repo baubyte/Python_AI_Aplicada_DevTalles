@@ -53,7 +53,7 @@ class RAGPipeline:
     buscar fragmentos relevantes y generar respuestas utilizando un LLM.
     """
 
-    def __init__(self, collection_name: str, db_path: str = "./data/chromadb"):
+    def __init__(self, collection_name: str, db_path: str = "./data/chromadb") -> None:
         """
         Inicializando el RAG Pipeline.
 

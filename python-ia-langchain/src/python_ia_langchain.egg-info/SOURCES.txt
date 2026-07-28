@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/langchain_section/config/settings.py
+src/langchain_section/core/llm.py
+src/langchain_section/demos/demo_lcel.py
+src/python_ia_langchain.egg-info/PKG-INFO
+src/python_ia_langchain.egg-info/SOURCES.txt
+src/python_ia_langchain.egg-info/dependency_links.txt
+src/python_ia_langchain.egg-info/requires.txt
+src/python_ia_langchain.egg-info/top_level.txt

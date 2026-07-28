@@ -12,6 +12,7 @@ class LangChainSettings:
     CHAT_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     EMBEDDING_MODEL: str = os.getenv(
         "OPENAI_MODEL_EMBEDDING", "text-embedding-3-small")
+    OPENAI_BASE_URL: str = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 
     # Parámetros LLM
     DEFAULT_TEMPERATURE: float = float(

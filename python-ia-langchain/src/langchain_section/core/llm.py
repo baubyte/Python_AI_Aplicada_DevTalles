@@ -32,4 +32,8 @@ def get_embeddings() -> OpenAIEmbeddings:
         OpenAIEmbeddings: Instancia del cliente de embeddings.
     """
     return OpenAIEmbeddings(
-        model=settings.EMBEDDING_MODEL, base_url=settings.OPENAI_BASE_URL)
+        model=settings.EMBEDDING_MODEL,
+        base_url=settings.OPENAI_BASE_URL,
+        check_embedding_ctx_length=False,
+        model_kwargs={"encoding_format": "float"},
+    )

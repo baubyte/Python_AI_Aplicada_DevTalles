@@ -23,7 +23,8 @@ build/
 *.egg
 
 # Database & local persistent storage
-data/
+data/chromadb*
+data/*chromadb
 *.db
 *.sqlite3
 
